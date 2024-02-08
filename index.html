@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal Day</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-image: url('https://graph.org/file/3e2668ec02cf3690a8523.jpg'); /* Background image of sky full of stars */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 100px auto;
+        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        color: #333;
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    p {
+        color: #666;
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    .dialogue {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+    }
+    .dialogue h1 {
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    .dialogue button {
+        margin: 0 10px;
+        padding: 12px 30px;
+        font-size: 18px;
+    }
+    /* Custom CSS for each dialogue box and response */
+    #dialogueLove {
+        background-color: #ffccbc; /* Light orange */
+        color: #333;
+    }
+    #dialogueLove h1 {
+        color: #e64a19; /* Darker orange */
+    }
+    #dialogueLove button {
+        background-color: #e64a19; /* Darker orange */
+    }
+    
+    #dialogueDate {
+        background-color: #b2ebf2; /* Light blue */
+        color: #333;
+    }
+    #dialogueDate h1 {
+        color: #006064; /* Darker blue */
+    }
+    #dialogueDate button {
+        background-color: #006064; /* Darker blue */
+    }
+
+    #dialogueBusiness {
+        background-color: #c8e6c9; /* Light green */
+        color: #333;
+    }
+    #dialogueBusiness h1 {
+        color: #2e7d32; /* Darker green */
+    }
+    #dialogueBusiness button {
+        background-color: #2e7d32; /* Darker green */
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>This is for you!</h1>
+    <p>Start to see...</p>
+    <button id="proposalButton">Start to see</button>
+</div>
+
+<!-- Dialogue Boxes -->
+<div id="dialogueLove" class="dialogue">
+    <h1>Will you marry me?</h1>
+    <button id="yesLove">Yes</button>
+    <button id="noLove">No</button>
+</div>
+
+<div id="dialogueDate" class="dialogue">
+    <h1>Would you like to go on a date?</h1>
+    <button id="yesDate">Yes</button>
+    <button id="noDate">No</button>
+</div>
+
+<div id="dialogueBusiness" class="dialogue">
+    <h1>Would you like to start a business together?</h1>
+    <button id="yesBusiness">Yes</button>
+    <button id="noBusiness">No</button>
+</div>
+
+<script>
+    const proposalButton = document.getElementById('proposalButton');
+    const dialogueLove = document.getElementById('dialogueLove');
+    const dialogueDate = document.getElementById('dialogueDate');
+    const dialogueBusiness = document.getElementById('dialogueBusiness');
+
+    // Function to show dialogue box
+    function showDialogue(dialogue) {
+        dialogue.style.display = 'block';
+    }
+
+    // Function to hide all dialogue boxes
+    function hideAllDialogues() {
+        const dialogues = document.querySelectorAll('.dialogue');
+        dialogues.forEach(dialogue => {
+            dialogue.style.display = 'none';
+        });
+    }
+
+    // Event listener for proposal button
+    proposalButton.addEventListener('click', function() {
+        hideAllDialogues(); // Hide all dialogues first
+        showDialogue(dialogueLove); // Show love proposal dialogue
+    });
+
+    // Handling response for love proposal
+    document.getElementById('yesLove').addEventListener('click', function() {
+        hideAllDialogues(); // Hide all dialogues
+        showDialogue(dialogueDate); // Show date proposal dialogue
+    });
+
+    document.getElementById('noLove').addEventListener('click', function() {
+        hideAllDialogues(); // Hide all dialogues
+        showDialogue(dialogueBusiness); // Show business proposal dialogue
+    });
+
+    // Handling response for date proposal
+    document.getElementById('yesDate').addEventListener('click', function() {
+        alert('Great! Let\'s plan it.');
+    });
+
+    document.getElementById('noDate').addEventListener('click', function() {
+        alert('Okay, maybe another time!');
+    });
+
+    // Handling response for business proposal
+    document.getElementById('yesBusiness').addEventListener('click', function() {
+        alert('Great! Let\'s discuss further.');
+    });
+
+    document.getElementById('noBusiness').addEventListener('click', function() {
+        alert('Okay, maybe another opportunity will arise!');
+    });
+</script>
+
+</body>
+</html>
